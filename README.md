@@ -21,6 +21,14 @@ Esta guia esta pensada para avanzar de lo fundamental a lo mas especializado, co
 
 **Tiempo total estimado: 8-12 horas**
 
+## Proyectos (guias detalladas)
+
+Cada fase tiene una guia detallada dentro de la carpeta `projects/`, con experiencia practica sugerida, checklist de temas y recursos:
+
+- [Proyecto 1 - Fundamentos de IAM (RBAC, MFA, SSO, PKI)](projects/01-iam-fundamentals/README.md)
+- [Proyecto 2 - IA para Ciberseguridad](projects/02-ai-for-cybersecurity/README.md)
+- [Proyecto 3 - Seguridad y Cumplimiento en la Nube](projects/03-cloud-security-compliance/README.md)
+
 ---
 
 ## Fase 1: Fundamentos de Ciberseguridad (IAM)
