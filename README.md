@@ -1,12 +1,12 @@
 # Cybersecurity Learning Roadmap
 
-Roadmap practico y por etapas para construir una base solida en ciberseguridad, con enfoque en Identity and Access Management (IAM), IA aplicada a seguridad, y seguridad/cumplimiento en la nube (incluyendo estandares del Departamento de Defensa de EE. UU.: DoD RMF, IL4/IL5, y FedRAMP).
+Roadmap practico y por etapas para construir una base solida en ciberseguridad, con enfoque en Identity and Access Management (IAM), IA aplicada a seguridad, seguridad/cumplimiento en la nube (incluyendo estandares del Departamento de Defensa de EE. UU.: DoD RMF, IL4/IL5, y FedRAMP), y operaciones de un SOC (deteccion, respuesta a incidentes y auditoria).
 
 Esta guia esta pensada para avanzar de lo fundamental a lo mas especializado, con tiempos estimados por etapa para poder planificar el estudio en sesiones cortas.
 
 ## Como usar este roadmap
 
-1. Sigue las tres fases en orden: cada una construye sobre los conceptos de la anterior.
+1. Sigue las cinco fases en orden: cada una construye sobre los conceptos de la anterior.
 2. Usa el checklist de cada fase para marcar tu progreso.
 3. Los recursos sugeridos son un punto de partida; complementa con documentacion oficial (NIST, AWS, Microsoft, DoD) cuando sea posible.
 4. Considera documentar lo aprendido (notas, laboratorios propios, capturas) como evidencia para portafolio o entrevistas.
@@ -18,8 +18,10 @@ Esta guia esta pensada para avanzar de lo fundamental a lo mas especializado, co
 | 1 | Fundamentos de Ciberseguridad (IAM) | 1-2 horas |
 | 2 | IA para Ciberseguridad | 3-4 horas |
 | 3 | Seguridad y Cumplimiento en la Nube | 4-6 horas |
+| 4 | SOC Operations (SIEM, IR, Monitoreo de Red) | 5-7 horas |
+| 5 | Auditoria con CloudTrail y Analisis de Logs | 3-5 horas |
 
-**Tiempo total estimado: 8-12 horas**
+**Tiempo total estimado: 16-24 horas**
 
 ## Proyectos (guias detalladas)
 
@@ -28,6 +30,8 @@ Cada fase tiene una guia detallada dentro de la carpeta `projects/`, con experie
 - [Proyecto 1 - Fundamentos de IAM (RBAC, MFA, SSO, PKI)](projects/01-iam-fundamentals/README.md)
 - [Proyecto 2 - IA para Ciberseguridad](projects/02-ai-for-cybersecurity/README.md)
 - [Proyecto 3 - Seguridad y Cumplimiento en la Nube](projects/03-cloud-security-compliance/README.md)
+- [Proyecto 4 - SOC Operations (SIEM, IR, Monitoreo de Red)](projects/04-soc-operations/README.md)
+- [Proyecto 5 - Auditoria con CloudTrail y Analisis de Logs](projects/05-audit-cloudtrail/README.md)
 
 ---
 
@@ -60,72 +64,58 @@ Poder explicar, con tus propias palabras, la diferencia entre autenticacion y au
 
 ---
 
-## Fase 2: IA para Ciberseguridad
+## Fase 4: SOC Operations (SIEM, IR, Monitoreo de Red)
 
-**Tiempo estimado: 3-4 horas**
-
-### Objetivo
-
-Explorar como la inteligencia artificial se usa para mejorar la seguridad, incluyendo herramientas de seguridad potenciadas por IA y deteccion de amenazas basada en machine learning.
-
-### Temas a cubrir
-
-- [ ] **Herramientas de seguridad potenciadas por IA**: EDR/XDR con deteccion basada en comportamiento, SOAR con triage automatizado, y asistentes de seguridad basados en LLM (ej. Microsoft Security Copilot).
-- [ ] **Deteccion de amenazas con machine learning**: modelos supervisados vs. no supervisados, deteccion de anomalias en trafico de red, y clasificacion de malware.
-- [ ] **UEBA (User and Entity Behavior Analytics)**: como los modelos de ML detectan comportamiento anomalo de usuarios o entidades (ej. acceso fuera de horario, movimientos laterales).
-- [ ] **Limitaciones y riesgos**: falsos positivos/negativos, sesgo en modelos, adversarial machine learning (como los atacantes pueden intentar evadir modelos de deteccion), y la importancia de mantener supervision humana ("human-in-the-loop").
-
-### Recursos sugeridos
-
-- Documentacion de MITRE ATT&CK para entender el contexto de amenazas que estas herramientas intentan detectar.
-- Publicaciones de proveedores (CrowdStrike, Microsoft, Darktrace) sobre como implementan ML en sus productos de deteccion.
-- Cursos introductorios sobre fundamentos de machine learning aplicados a seguridad (ej. en Coursera o plataformas similares).
-
-### Resultado esperado
-
-Poder describir al menos dos casos de uso reales de IA/ML en ciberseguridad y explicar una limitacion importante de depender unicamente de estos sistemas.
-
----
-
-## Fase 3: Seguridad y Cumplimiento en la Nube
-
-**Tiempo estimado: 4-6 horas**
+**Tiempo estimado: 5-7 horas**
 
 ### Objetivo
 
-Estudiar seguridad en la nube, dispositivos edge/IoT, e integracion segura, incluyendo los requisitos de DoD RMF, IL4/IL5 y FedRAMP.
+Comprender como opera un Security Operations Center (SOC): deteccion de amenazas, monitoreo continuo y respuesta a incidentes.
 
 ### Temas a cubrir
 
-- [ ] **Modelo de responsabilidad compartida**: que asegura el proveedor de nube (AWS/Azure/GCP) vs. que asegura el cliente.
-- [ ] **Seguridad de edge/IoT**: superficie de ataque de dispositivos distribuidos, gestion de identidad de dispositivos, y retos de actualizar/parchar dispositivos en el borde de la red.
-- [ ] **Integracion segura**: patrones seguros para APIs, colas de mensajes y pipelines de datos entre servicios en la nube (autenticacion de servicio a servicio, cifrado en transito y en reposo).
-- [ ] **DoD RMF (Risk Management Framework)**: las siete etapas del RMF (Prepare, Categorize, Select, Implement, Assess, Authorize, Monitor) y como se usa para autorizar sistemas dentro del Departamento de Defensa de EE. UU.
-- [ ] **DoD Impact Levels (IL4 / IL5)**: que tipo de datos corresponden a cada nivel de impacto, y que controles adicionales exige IL5 frente a IL4 (aislamiento, personal con ciudadania, ubicacion de datos).
-- [ ] **FedRAMP**: proposito del programa (estandarizar la evaluacion de seguridad de servicios en la nube para el gobierno de EE. UU.), niveles de autorizacion (Low, Moderate, High), y el proceso general de autorizacion (assessment por un 3PAO, paquete de autorizacion, ATO).
+- [ ] **SIEM (Security Information and Event Management)**: recoleccion y correlacion de logs, alertas y casos de uso comunes.
+- [ ] **Monitoreo de red**: analisis de trafico, deteccion de anomalias y herramientas IDS/IPS.
+- [ ] **Respuesta a incidentes (IR)**: ciclo de vida de un incidente (preparacion, deteccion, contencion, erradicacion, recuperacion, lecciones aprendidas).
+- [ ] **Threat hunting basico**: busqueda proactiva de indicadores de compromiso (IOCs).
 
 ### Recursos sugeridos
 
-- Sitio oficial de [FedRAMP](https://www.fedramp.gov/) para entender el proceso de autorizacion y el marketplace de proveedores autorizados.
-- Documentacion publica del DoD Cloud Computing Security Requirements Guide (SRG) para IL4/IL5.
-- NIST SP 800-37 (Risk Management Framework) como base conceptual del RMF.
-- Documentacion de AWS GovCloud / Azure Government sobre como sus regiones cumplen con estos requisitos.
+- NIST SP 800-61 (Computer Security Incident Handling Guide).
+- Documentacion de herramientas SIEM (Splunk, Elastic Security, Microsoft Sentinel).
+- MITRE ATT&CK como marco de referencia para tacticas y tecnicas de atacantes.
 
 ### Resultado esperado
 
-Poder explicar la diferencia entre IL4 e IL5, describir las etapas del RMF en orden, y explicar por que un proveedor de nube necesita una autorizacion FedRAMP para trabajar con agencias federales.
+Poder describir el flujo de trabajo de un analista SOC y aplicar un proceso basico de respuesta a incidentes.
+
+> Guia detallada: [Proyecto 4 - SOC Operations](projects/04-soc-operations/README.md)
 
 ---
 
-## Proximos pasos sugeridos
+## Fase 5: Auditoria con CloudTrail y Analisis de Logs
 
-Despues de completar las tres fases, algunas rutas naturales de profundizacion son:
+**Tiempo estimado: 3-5 horas**
 
-- Practicar los conceptos de IAM de forma hands-on (ver [aws-iam-security-lab](https://github.com/Echo506/aws-iam-security-lab)).
-- Explorar certificaciones relacionadas: CompTIA Security+, (ISC)2 CCSP (seguridad en la nube), o certificaciones especificas de proveedor (AWS Security Specialty, Azure Security Engineer).
-- Profundizar en un area especifica de IA para seguridad, por ejemplo montando un detector simple de anomalias con datos de logs publicos.
-- Leer el paquete de autorizacion publico de un proveedor FedRAMP como caso de estudio real.
+### Objetivo
 
-## Autor
+Aprender a auditar actividad en la nube utilizando AWS CloudTrail y herramientas de analisis de logs, cerrando el ciclo de visibilidad y cumplimiento iniciado en las fases anteriores.
 
-Wilfrido Perez Romero - [LinkedIn](https://linkedin.com/in/wilfridocostarica)
+### Temas a cubrir
+
+- [ ] **AWS CloudTrail**: registro de llamadas a la API, tipos de trails (organizacion, multi-region) y almacenamiento de logs en S3.
+- [ ] **Analisis de logs**: uso de Amazon Athena o CloudWatch Logs Insights para consultar eventos de CloudTrail.
+- [ ] **Deteccion de actividad sospechosa**: identificar cambios no autorizados en IAM, accesos anomalos y uso indebido de credenciales.
+- [ ] **Integridad de logs**: validacion de archivos de log de CloudTrail y proteccion contra manipulacion (log file validation, buckets con versionado y MFA delete).
+
+### Recursos sugeridos
+
+- Documentacion oficial de AWS CloudTrail y AWS Config.
+- Guias de AWS sobre analisis de logs con Athena.
+- NIST SP 800-92 (Guide to Computer Security Log Management).
+
+### Resultado esperado
+
+Poder configurar un trail basico, consultar eventos relevantes y explicar como la auditoria de logs soporta la deteccion de incidentes y el cumplimiento normativo.
+
+> Guia detallada: [Proyecto 5 - Auditoria con CloudTrail](projects/05-audit-cloudtrail/README.md)
